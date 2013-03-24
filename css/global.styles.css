@@ -457,13 +457,13 @@ ul.tags {
 /* ! TODO update urls */
 #top-header {
   background: #222;
-  background-image: url('../img/background.png');
-    background-image: url('../img/background.png'), -moz-radial-gradient(center, ellipse cover, #333 0%, #000 100%);
-    background-image: url('../img/background.png'), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#333), color-stop(100%,#000));
-    background-image: url('../img/background.png'), -webkit-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
-    background-image: url('../img/background.png'), -o-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
-    background-image: url('../img/background.png'), -ms-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
-  background-image: url('../img/background.png'), radial-gradient(ellipse at center, #333 0%,#000 100%);
+  background-image: url('http://urbanops.github.com/img/background.png');
+    background-image: url('http://urbanops.github.com/img/background.png'), -moz-radial-gradient(center, ellipse cover, #333 0%, #000 100%);
+    background-image: url('http://urbanops.github.com/img/background.png'), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#333), color-stop(100%,#000));
+    background-image: url('http://urbanops.github.com/img/background.png'), -webkit-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
+    background-image: url('http://urbanops.github.com/img/background.png'), -o-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
+    background-image: url('http://urbanops.github.com/img/background.png'), -ms-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
+  background-image: url('http://urbanops.github.com/img/background.png'), radial-gradient(ellipse at center, #333 0%,#000 100%);
   background-repeat: no-repeat;
   background-position: center 0%;
   width: 100%;
