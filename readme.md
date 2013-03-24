@@ -6,6 +6,13 @@ The purpose of this repo is to provide hosting for all additional artefacts for 
 
 Backups of template files will be kept here to ensure that the configuration adjustments can be reverted if needed.
 
+
+## Installation
+
+Making sure that you select the "Basic" theme for Scriptogr.am (which is default), replace the html content with the index.html provided in this repo.
+
+Simple, huh?
+
                             .       .
                             / `.   .' \
                     .---.  <    > <    >  .---.
