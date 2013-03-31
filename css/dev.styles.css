@@ -293,6 +293,7 @@ a:hover, a:active {
 .desktop-nav a:visited, footer a:visited {
   color: #999;
   border-bottom-width:0;
+  font-weight: bold;
 }
 
 .desktop-nav a:hover, footer a:hover {
@@ -490,7 +491,7 @@ ul.tags {
 .articlepost {
   display: block;
   width: 100%;
-  padding-top: 6em;
+  padding-top: 4em;
   padding-bottom: 5.5em;
 }
 
@@ -526,8 +527,7 @@ ul.tags {
   color: #ddd;
   text-shadow: 0 -1px 0 #222;
   border-bottom: 1px solid #111;
-  font-size:20px;
-  line-height:20px;
+  line-height:30px;
 }
 
 nav ul {
@@ -570,7 +570,6 @@ article.archive {
   article.archive .archive-link {
     display: block;
     float: left;
-    font-family: "Proxima Nova Semi-Bold";
     padding-bottom: 0em;
     color: #333;
     width: 60%;

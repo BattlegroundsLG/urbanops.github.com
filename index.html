@@ -26,7 +26,7 @@
 		<header id="top-header">
 			<nav id="main-nav" class="group content">
         <h1>
-          <a href="{{base_url}}"><img src="img/logo.png" alt="{{blog_title}}" /></a>
+          <a href="{{base_url}}"><img src="http://urbanops.github.com/img/logo.png" alt="{{blog_title}}" /></a>
         </h1>
 				<ul class="desktop-nav">
 				  {{#pages}}<li><a href="{{permalink}}">{{title}}</a></li>{{/pages}}
@@ -37,16 +37,13 @@
 		<section id="articles" class="{{page}} content">
 
     {{#posts}}
-		  <header>
-		  	<h2 class="title"><a href="{{permalink}}">{{title}}</a></h2>
-		  </header>
     {{^is_archive}}
+	  <header>
+	  	<h2 class="title"><a href="{{permalink}}">{{title}}</a></h2>
+	  </header>
 		<article>
      {{#date}}<div class="date">{{prettydate}}</div>{{/date}}
 		  <div class="articlepost">
-		  <header>
-		  	<h2><a href="{{permalink}}">{{title}}</a> {{#post_permalink}}<a href="{{post_permalink}}">#</a>{{/post_permalink}}</h2>
-		  </header>
       {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
       {{content}}
       {{#if_tags}}
@@ -83,7 +80,10 @@
 
     <!-- archive -->
     {{#is_archive}}
-    <article class="archive{{#archive_divider}} archive-devider{{/archive_divider}} {{archive_divider_index}}">
+	  <header>
+	  	<h2 class="title">Archives</h2>
+	  </header>
+    <article class="archive{{#archive_divider}} archive-devider{{/archive_divider}} {{archive_divider_index}} group">
       {{#archive_divider}}<div class="archive-date-divider">{{archive_divider}}</div>{{/archive_divider}}
 	     <span class="archive-date">{{prettydate}}</span>
 	     <span class="archive-link"><a href="{{permalink}}">{{title}}</a>{{#post_permalink}} <a href="{{post_permalink}}">#</a>{{/post_permalink}}</strong></span>
