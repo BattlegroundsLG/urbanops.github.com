@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!--
-	Basic scriptogr.am theme
--->
 <html lang="en">
 <head>
   <title>{{blog_title}} {{title}}</title>
@@ -37,22 +34,33 @@
 		<section id="articles" class="{{page}} content">
 
     {{#posts}}
-    {{^is_archive}}
-	  <header>
-	  	<h2 class="title"><a href="{{permalink}}">{{title}}</a></h2>
+    <header>
+      <h2 class="title"><a href="{{permalink}}">
+      {{#is_index}}Battlegrounds: Live Gaming Experience{{/is_index}}
+      {{#is_archive}}News Archive{{/is_archive}}
+      {{#is_post}}{{title}}{{/is_post}}
+      {{#is_page}}{{title}}{{/is_page}}
+      </a></h2>
 	  </header>
-		<article>
-     {{#date}}<div class="date">{{prettydate}}</div>{{/date}}
+
+		<article class="group">
+    {{^is_archive}}
+
+     {{#is_post}}{{#date}}<div class="date">{{prettydate}}</div>{{/date}}{{/is_post}}
 		  <div class="articlepost">
-      {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
-      {{content}}
-      {{#if_tags}}
-        <ul class="tags">
-          {{#tags}}<li><a href="{{base_url}}/tag/{{name}}">{{name}}</a></li>{{/tags}}
-        </ul>
-      {{/if_tags}}
+
+      {{^is_index}}
+        {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
+        {{content}}
+        {{#if_tags}}
+          <ul class="tags">
+            {{#tags}}<li><a href="{{base_url}}/tag/{{name}}">{{name}}</a></li>{{/tags}}
+          </ul>
+        {{/if_tags}}
+      {{/is_index}}
+
+      <!-- !Post -->
       {{#is_post}}
-        <!-- Like button -->
         <div id="social">
 
           <! -- Tweet button -->
@@ -74,35 +82,54 @@
           </script>
         </div>
       {{/is_post}}
+
+            <!-- !Index -->
+      {{#is_index}}
+        <h2>This is the index page</h2>
+        <p>Beatae iste veritatis vulputate ullam veniam. Taciti molestias ullamco volutpat auctor fames mi quaerat hic mi? Iaculis dapibus earum quibusdam, elementum? Molestias! Fugit vulputate! Ultricies.</p>
+
+        <p>Ex ullamcorper laoreet accumsan! Distinctio felis lectus id massa nobis! Ipsam fringilla! Taciti gravida semper cupiditate quae quisque sollicitudin platea? Cras? Veniam? Pariatur! Aliquam habitasse.</p>
+
+        <p>Asperiores vel atque alias, excepturi natus augue molestie auctor quisquam condimentum nesciunt? Porttitor, dolores beatae vehicula? Sodales commodo? Etiam eaque at nascetur facere fames excepteur.</p>
+
+        <!-- !Begin MailChimp Signup Form -->
+        <div id="mc_embed_signup">
+          <form action="http://hamiltonmehta.us1.list-manage.com/subscribe/post?u=56e8b3a9a964c5d1d464f4377&amp;id=b792392d0b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <h3>Receive updates</h3>
+              <label for="mce-EMAIL" class="invisible">Email Address</label>
+              <input type="email" name="EMAIL" class="required email" id="mce-EMAIL">
+              <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>
+            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+          </form>
+        </div>
+        <!--End mc_embed_signup-->
+    {{/is_index}}
+
 		  </div>
-		</article>
     {{/is_archive}}
 
-    <!-- archive -->
+    <!-- !Archive -->
     {{#is_archive}}
-	  <header>
-	  	<h2 class="title">Archives</h2>
-	  </header>
-    <article class="archive{{#archive_divider}} archive-devider{{/archive_divider}} {{archive_divider_index}} group">
-      {{#archive_divider}}<div class="archive-date-divider">{{archive_divider}}</div>{{/archive_divider}}
+
 	     <span class="archive-date">{{prettydate}}</span>
 	     <span class="archive-link"><a href="{{permalink}}">{{title}}</a>{{#post_permalink}} <a href="{{post_permalink}}">#</a>{{/post_permalink}}</strong></span>
 	    {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
-		</article>
     {{/is_archive}}
     {{/posts}}
 
     <!-- 404 -->
     {{^posts}}
-		<article>
-		  <div class="articlepost">
+	  <div class="articlepost">
 		  <header>
       <h2><a href="{{base_url}}">Found nothing to read, sorry we're not sorry.</a></h2>
 		  </header>
-		  </div>
-		</article>
+	  </div>
 		{{/posts}}
 
+    </article>
 		</section>
     <section class="pagination">
       <div class="content">{{pagination}}</div>
