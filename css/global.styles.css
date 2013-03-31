@@ -1,4 +1,9 @@
 /*
+  * Battlegrounds net global styles
+  * based off of the basic scriptogram style
+*/
+
+/*
 	* Gridless version 2.0.0
 	* Credit is left inline and big thanks to Nicolas Gallagher and Jonathan Neal
 	* Across this document we use safe CSS hacks: http://mathiasbynens.be/notes/safe-css-hacks
@@ -33,16 +38,7 @@ audio[controls], canvas, video {
 	visibility: hidden;
 }
 
-/*
-  * accessibility class for hidden elements
-*/
-.hidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-}
-
-/* !Base structure
+/* Base structure
 ---------------------------------------- */
 
 /*
@@ -54,10 +50,10 @@ audio[controls], canvas, video {
 html {
 	height: 100%;
 	font-size: 100%;
-	overflow-y: scroll; /* !Force a scrollbar in non-IE */
-	-webkit-text-size-adjust: 100%; /* !Prevent iOS text size adjust on orientation change without disabling user zoom */
+	overflow-y: scroll; /* Force a scrollbar in non-IE */
+	-webkit-text-size-adjust: 100%; /* Prevent iOS text size adjust on orientation change without disabling user zoom */
 	-ms-text-size-adjust: 100%;
-	background: #fff;
+	background: #e4e4e4;
 }
 
 body {
@@ -65,29 +61,30 @@ body {
 	margin: 0 auto;
 	min-height: 100%;
 	max-width: 100%;
+	background: #e4e4e4 url('../img/bg.jpg') repeat fixed;
 }
 
 .content {
 	margin: 0 auto;
-  max-width: 600px;
+  max-width: 660px;
 }
 
-/* !Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/ */
+/* Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/ */
 body, button, input, select, textarea {
 	font: 1em/1.5 'Helvetica Neue', sans-serif;
-	color: #444; /* !Black on white is too much contrast, #333 is a lot better */
+	color: #444; /* Black on white is too much contrast, #333 is a lot better */
 }
 
 p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, button, hr, header {
 	margin: 0 0 1.5em;
 }
 
-/* !Headings/small
+/* Headings/small
 ---------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
+	font-family: 'Helvetica Neue', sans-serif;
 	font-size: 1em;
-	font-weight: normal;
 	text-shadow: 0px 1px 0px white;
 	margin: 0;
 	padding: 0;
@@ -105,6 +102,10 @@ h2 {
     font-size: 28px;
     line-height: 36px;
     margin-bottom: 24px;
+}
+
+h2.title {
+  font-size:2em;
 }
 
 h3 {
@@ -128,14 +129,14 @@ h6 {
 }
 
 small {
-	font-size: 0.65em; /* !10px */
+	font-size: 0.65em; /* 10px */
 	margin: 0 0 1.5em;
 }
 
 /* !Preformatted text and code
 ---------------------------------------- */
 
-/* !Allows line wrapping of 'pre' */
+/* Allows line wrapping of 'pre' */
 pre {
 	white-space: pre;
 	white-space: pre-wrap;
@@ -241,7 +242,7 @@ blockquote, q, cite {
 
 blockquote {
 	padding-left: 1.5em;
-	border-left: 5px solid #f7931e;
+	border-left: 5px solid #f49223;
 }
 
 blockquote > p {
@@ -275,16 +276,49 @@ a, a:visited {
 
 a:hover {
 	color: #000;
-	border-bottom: 3px solid #f7931e;
+	border-bottom: 3px solid #f49223;
 }
 
 a:focus {
 	outline: thin dotted;
 }
 
-/* !Better CSS outline suppression: people.opera.com/patrickl/experiments/keyboard/test */
+/* Better CSS outline suppression: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active {
 	outline: none;
+}
+
+
+.desktop-nav a, footer a,
+.desktop-nav a:visited, footer a:visited {
+  color: #999;
+  border-bottom-width:0;
+}
+
+.desktop-nav a:hover, footer a:hover {
+  color: #999;
+  border-bottom-width: 3px;
+}
+
+
+#main-nav h1, .desktop-nav {
+  float: left;
+  margin: 0 0;
+}
+
+.mobile-nav {
+  display:block;
+  float: right;
+  width: 34px;
+  height: 19px;
+  background: transparent url('../img/nav.png') no-repeat center center;
+  text-indent: 50px;
+  overflow: hidden;
+  border-bottom-width:0;
+}
+
+.mobile-nav:hover {
+  border-bottom-width: 0;
 }
 
 /* !Figures
@@ -300,8 +334,8 @@ figure {
 img, object, video {
 	margin: 0 auto;
 	display: block;
-	max-width: 100%; /* !Consider this first: unstoppablerobotninja.com/entry/fluid-images/ */
-	/* !_width: 100%; /* !Uncomment this: IE6 doesn't support max-width, so we use width: 100% for it. If the image/video is smaller than the container, change 100% to an absolute value */
+	max-width: 100%; /* Consider this first: unstoppablerobotninja.com/entry/fluid-images/ */
+	/* _width: 100%; /* Uncomment this: IE6 doesn't support max-width, so we use width: 100% for it. If the image/video is smaller than the container, change 100% to an absolute value */
 }
 
 /*
@@ -310,10 +344,10 @@ img, object, video {
 */
 img {
 	border: 0;
-	-ms-interpolation-mode: bicubic; /* !Improve IE's resizing of images: css-tricks.com/ie-fix-bicubic-scaling-for-images */
+	-ms-interpolation-mode: bicubic; /* Improve IE's resizing of images: css-tricks.com/ie-fix-bicubic-scaling-for-images */
 }
 
-/* !Corrects overflow displayed oddly in IE9 */
+/* Corrects overflow displayed oddly in IE9 */
 svg:not(:root) {
 	overflow: hidden;
 }
@@ -352,7 +386,23 @@ hr {
 	border-bottom: 1px solid #aaa;
 }
 
-/* !Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930 */
+var, address, p, textarea, input, blockquote, select {
+    font-family: "Proxima Nova Regular", 'Helvetica', Arial, Helvetica, sans-serif; font-weight: normal
+}
+
+dfn, em, i{
+    font-family: "Proxima Nova Italic", 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: normal
+}
+
+strong, b, dt {
+    font-family: "Proxima Nova Semi-Bold", 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: normal
+}
+
+b em, b i, strong em, strong i, dt em, dt i {
+    font-family: "Proxima Nova Semi-Bold Italic", 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: normal
+}
+
+/* Position 'sub' and 'sup' without affecting line-height: gist.github.com/413930 */
 sub, sup {
 	font-size: 0.625em;
 	line-height: 0;
@@ -386,6 +436,12 @@ sub {
 
 .group {
 	*zoom: 1;
+}
+
+.invisible { /* for accessibility */
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 /* !Primary styles
@@ -443,8 +499,15 @@ ul.tags {
   z-index: 99999;
 }
 
-#articles {
+#main-nav {
+  padding: 1em 0  ;
+}
+
+#articles article {
  background: white;
+ border: 1px solid #ddd;
+ margin: 1em auto;
+ padding: 1em 1.5em;
 }
 
   #articles h2 a {
@@ -452,75 +515,31 @@ ul.tags {
   }
 
   #articles h2 a:hover {
-    color: #f7931e
+    color: #f49223
   }
-/* ! TODO update urls */
+
 #top-header {
-  background: #222;
-  background-image: url('../img/background.png');
-    background-image: url('../img/background.png'), -moz-radial-gradient(center, ellipse cover, #333 0%, #000 100%);
-    background-image: url('../img/background.png'), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#333), color-stop(100%,#000));
-    background-image: url('../img/background.png'), -webkit-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
-    background-image: url('../img/background.png'), -o-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
-    background-image: url('../img/background.png'), -ms-radial-gradient(center, ellipse cover, #333 0%,#000 100%);
-  background-image: url('../img/background.png'), radial-gradient(ellipse at center, #333 0%,#000 100%);
-  background-repeat: no-repeat;
-  background-position: center 0%;
   width: 100%;
-  padding: 1em 0 4em;
-  margin: 0;
+  margin: 0 0 2em;
   zoom: 1;
-    -moz-box-shadow: inset 3px 3px 3px 0 #000;
-    -webkit-box-shadow: inset 3px 3px 3px 0 #000;
-  box-shadow: inset 3px 3px 5px 0 #000;
+  background: #333;
+  color: #ddd;
+  text-shadow: 0 -1px 0 #222;
+  border-bottom: 1px solid #111;
+  font-size:20px;
+  line-height:20px;
 }
 
-#main-header {
-  clear: both;
-  display: block;
-    text-shadow: 0px 1px 0px #fff;
-    text-shadow: 0px 1px 0px rgba(255,255,255,0.1);
+nav ul {
+	margin: 0 0.65em;
 }
 
-  #main-header h1 {
-    letter-spacing: -1px;
-    color: #333;
-    color: rgba(0,0,0,0.8);
-    text-shadow: 0px 1px 0px #fff;
-    text-shadow: 0px 1px 0px rgba(255,255,255,0.2);
-    font-size: 96px;
-    line-height: 96px;
-  }
-
-#top-header:hover, #top-header:hover h1 {
-	color: #f7931e;
-}
-
-#main-nav, #main-header {
-	text-align: left;
-}
-
-#main-nav {
-  height: 4em;
-}
-
-#main-nav li {
+nav li {
 	list-style: none;
 	margin: 0 0.65em;
 }
 
-#main-nav a {
-	font-weight:bold;
-	text-decoration: none;
-	border-bottom-width: 0 ;
-}
-
-#main-nav a:hover {
-  text-decoration: none;
-  border-bottom-width: 3px ;
-}
-
-button, a, button:hover, a:hover, pre, pre:hover, #main-header, #main-header:hover, #top-header:hover h1, ul.tags li a {
+button, a, button:hover, a:hover, pre, pre:hover, #top-header:hover h1, ul.tags li a {
 	-moz-transition: all linear 0.1s;
 	-webkit-transition: all linear 0.1s;
 	-o-transition: all linear 0.1s;
@@ -551,7 +570,7 @@ article.archive {
   article.archive .archive-link {
     display: block;
     float: left;
-    font-weight: bold;
+    font-family: "Proxima Nova Semi-Bold";
     padding-bottom: 0em;
     color: #333;
     width: 60%;
@@ -566,7 +585,7 @@ article.archive {
 
     article.archive .archive-link a:hover {
     	color: #000;
-    	border-bottom: 3px solid #f7931e;
+    	border-bottom: 3px solid #f49223;
     }
 
   article.archive .archive-date-divider {
@@ -608,7 +627,7 @@ pre {
 }
 
 pre:hover {
-	background: #f7931e;
+	background: #f49223;
   -moz-box-shadow:    inset 0 0 10px #000000;
   -webkit-box-shadow: inset 0 0 10px #000000;
 	box-shadow: inset 0 0 10px #000000;
@@ -632,10 +651,6 @@ footer {
   text-shadow: 0 -1px 0 #222;
   border-top: 1px solid #111;
   background: #333;
-}
-
-a.scriptogram-link {
-  color: #999
 }
 
 /* !Pagination */
@@ -738,14 +753,14 @@ a.scriptogram-link {
     padding: 0 !important;
   }
 
-/* !No border under the admin link */
+/* No border under the admin link */
 a[href*="/admin"]{
   border-bottom: 0;
 }
 
 
 
-/* !Media queries
+/* Media queries
 ---------------------------------------- */
 
 @media only screen and (max-width: 480px) {
@@ -756,16 +771,6 @@ a[href*="/admin"]{
 	  width: 80%;
 	}
 
-	#main-nav ul {
-	   width: 100%;
-  }
-
-  #main-nav li {
-  	display: inline-block;
-  	list-style: none;
-  	margin: 1em 0.65em;
-  	font-size: 0.8em;
-  }
 
   article.archive .archive-date {
     color: #999;
@@ -783,23 +788,6 @@ a[href*="/admin"]{
     text-overflow: ellipsis;
   }
 
-  #main-nav, #main-header {
-	 text-align: center;
-  }
-
-  #main-header {
-    margin: 0 0 2em;
-  }
-
-	#main-header h1 {
-    font-size: 42px;
-    line-height: 48px;
-    letter-spacing: 0;
-  }
-
-  #top-header {
-    padding-bottom: 2em;
-  }
 
   ul.tags {
     margin: 0 auto;
@@ -812,8 +800,18 @@ a[href*="/admin"]{
     }
 
   footer {
-    padding: 4em 0 8em;
+    padding: 4em 0;
   }
+
+  footer .content > * {
+    padding-bottom: 4em;
+  }
+
+
+  footer ul, footer li {
+		margin: 0 0;
+	}
+
 
   .date {
     display: block;
@@ -845,11 +843,8 @@ a[href*="/admin"]{
     margin: 1em auto
   }
 
-  article {
-    margin: 0;
-    padding: 1em 0;
-  }
-
+  .mobile-nav {display:block;}
+  .desktop-nav {display:none;}
 
 }
 
@@ -864,46 +859,34 @@ a[href*="/admin"]{
 
   #top-header {
     width: 100%;
-    padding: 1em 0 4em;
-    margin: 0;
     zoom: 1;
-    background-position: center center;
   }
+
   .author {
     margin: 1em auto
   }
 
-  #main-header {
-    margin: 6em 0 0;
-  }
-
-  #main-nav, #main-header {
+  #main-nav {
 	 text-align: center;
-  }
-
-	#main-nav ul {
-    margin-top: 1em;
   }
 
   #main-nav li {
 		display: inline;
 	}
 
+	footer .content > * {
+    width: 50%;
+    float:right;
+  }
+
+  .mobile-nav {display:none;}
+  .desktop-nav {display:block;}
 }
 
 @media only screen and (min-width: 1024px) {
 	body {
 		width: 100%;
 	}
-
-
-  #main-header {
-    margin: 10em 0 0;
-  }
-
-  #top-header {
-    height: 20em;
-  }
 
   .author {
     margin: 1em 0 0
@@ -913,19 +896,13 @@ a[href*="/admin"]{
 	 width: 100%;
 	}
 
-  #main-nav, #main-header {
+  #main-nav {
 	 text-align: left;
 	 padding-bottom: 1em
   }
 
-	#main-nav {
-    width: 940px;
-		margin: 1em 2%;
-	}
-
-	#main-nav ul {
+	.desktop-nav {
     margin-top: 0em;
-    float:right;
   }
 
 	#main-nav li {
@@ -935,17 +912,17 @@ a[href*="/admin"]{
 	button {
 		width: 100%;
 	}
-
 }
+
 /* !Print styles
 ---------------------------------------- */
 
-/* !Print styles inlined to avoid extra HTTP connection */
+/* Print styles inlined to avoid extra HTTP connection */
 
 @media print {
 	* {
 		background: transparent !important;
-		color: black !important; /* !Black prints faster: sanbeiji.com/archives/953 */
+		color: black !important; /* Black prints faster: sanbeiji.com/archives/953 */
 		text-shadow: none !important;
 		filter: none !important;
 		-ms-filter: none !important;
@@ -963,12 +940,12 @@ a[href*="/admin"]{
 		content: " (" attr(title) ")";
 	}
 
-	/* !Do not show javascript and internal links */
+	/* Do not show javascript and internal links */
 	a[href^="javascript:"]:after, a[href^="#"]:after {
 		content: "";
 	}
 
-	/* !Printing Tables: css-discuss.incutio.com/wiki/Printing_Tables */
+	/* Printing Tables: css-discuss.incutio.com/wiki/Printing_Tables */
 	thead {
 		display: table-header-group;
 	}
