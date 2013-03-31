@@ -61,7 +61,7 @@ body {
 	margin: 0 auto;
 	min-height: 100%;
 	max-width: 100%;
-	background: #e4e4e4 url('../img/bg.jpg') repeat fixed;
+	background: #e4e4e4 url('http://urbanops.github.com/img/bg.jpg') repeat fixed;
 }
 
 .content {
@@ -311,7 +311,7 @@ a:hover, a:active {
   float: right;
   width: 34px;
   height: 19px;
-  background: transparent url('../img/nav.png') no-repeat center center;
+  background: transparent url('http://urbanops.github.com/img/nav.png') no-repeat center center;
   text-indent: 50px;
   overflow: hidden;
   border-bottom-width:0;
