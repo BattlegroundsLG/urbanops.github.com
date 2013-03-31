@@ -19,7 +19,7 @@
   <link rel="canonical" href="{{#posts}}{{#is_post}}{{permalink}}{{/is_post}}{{/posts}}" />
   <link rel="shortcut icon" href="http://scriptogr.am/lib/img/favicon.ico">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{base_url}}/feed" />
-  <link rel="stylesheet" type="text/css" href="http://urbanops.github.com/css/min.styles.css"/>
+    <link rel="stylesheet" type="text/css" href="http://urbanops.github.com/css/min.styles.css"/>
   <script src="/themes/{{theme}}/assets/js/respond.min.js"></script>
 </head>
 	<body>
@@ -34,7 +34,7 @@
         <a class="mobile-nav" href="#mobile-nav">Nav</a>
 			</nav>
 		</header>
-		<section id="articles" class="{{page}} content">
+		<section id="articles" class="{{page}} index content">
 
     {{#posts}}
     {{^is_archive}}
@@ -42,7 +42,7 @@
 	  	<h2 class="title"><a href="{{permalink}}">{{title}}</a></h2>
 	  </header>
 		<article>
-     {{#date}}<div class="date">{{prettydate}}</div>{{/date}}
+     {{#is_post}}{{#date}}<div class="date">{{prettydate}}</div>{{/date}}{{/is_post}}
 		  <div class="articlepost">
       {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
       {{content}}
@@ -51,8 +51,35 @@
           {{#tags}}<li><a href="{{base_url}}/tag/{{name}}">{{name}}</a></li>{{/tags}}
         </ul>
       {{/if_tags}}
+
+      <!-- !Index -->
+      {{#is_index}}
+        <h2>This is the index page</h2>
+        <p>Beatae iste veritatis vulputate ullam veniam. Taciti molestias ullamco volutpat auctor fames mi quaerat hic mi? Iaculis dapibus earum quibusdam, elementum? Molestias! Fugit vulputate! Ultricies.</p>
+
+        <p>Ex ullamcorper laoreet accumsan! Distinctio felis lectus id massa nobis! Ipsam fringilla! Taciti gravida semper cupiditate quae quisque sollicitudin platea? Cras? Veniam? Pariatur! Aliquam habitasse.</p>
+
+        <p>Asperiores vel atque alias, excepturi natus augue molestie auctor quisquam condimentum nesciunt? Porttitor, dolores beatae vehicula? Sodales commodo? Etiam eaque at nascetur facere fames excepteur.</p>
+
+        <!-- !Begin MailChimp Signup Form -->
+        <div id="mc_embed_signup">
+          <form action="http://hamiltonmehta.us1.list-manage.com/subscribe/post?u=56e8b3a9a964c5d1d464f4377&amp;id=b792392d0b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <h3>Receive updates</h3>
+              <label for="mce-EMAIL" class="invisible">Email Address</label>
+              <input type="email" name="EMAIL" class="required email" id="mce-EMAIL">
+              <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>
+            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+          </form>
+        </div>
+        <!--End mc_embed_signup-->
+    {{/is_index}}
+
+
+      <!-- !Post -->
       {{#is_post}}
-        <!-- Like button -->
         <div id="social">
 
           <! -- Tweet button -->
@@ -75,16 +102,15 @@
         </div>
       {{/is_post}}
 		  </div>
-		</article>
+    </article>
     {{/is_archive}}
 
-    <!-- archive -->
+    <!-- !Archive -->
     {{#is_archive}}
 	  <header>
 	  	<h2 class="title">Archives</h2>
 	  </header>
     <article class="archive{{#archive_divider}} archive-devider{{/archive_divider}} {{archive_divider_index}} group">
-      {{#archive_divider}}<div class="archive-date-divider">{{archive_divider}}</div>{{/archive_divider}}
 	     <span class="archive-date">{{prettydate}}</span>
 	     <span class="archive-link"><a href="{{permalink}}">{{title}}</a>{{#post_permalink}} <a href="{{post_permalink}}">#</a>{{/post_permalink}}</strong></span>
 	    {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
