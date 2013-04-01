@@ -1,4 +1,4 @@
-# Battlegrounds.com Hosting
+# Battlegrounds.net Hosting
 
 ## Intent
 
